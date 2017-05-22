@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Eskil Opdahl Nordland",
+      "authorEmail": "eskil.nordland@gmail.com",
+      "authorUrl": "https://github.com/Eskalol/generator-swagger-es-6"
+    }
+  }
+}
