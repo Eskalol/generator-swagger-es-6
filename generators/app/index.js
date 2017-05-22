@@ -11,10 +11,9 @@ module.exports = class extends Generator {
     ));
 
     const prompts = [{
-      type: 'confirm',
-      name: 'someAnswer',
-      message: 'Would you like to enable this option?',
-      default: true
+      name: 'swagger-es6-project',
+      author: '',
+      description: ''
     }];
 
     return this.prompt(prompts).then(props => {
@@ -28,6 +27,15 @@ module.exports = class extends Generator {
       this.templatePath('src/'),
       this.destinationPath('src/')
     );
+    this.fs.copyTpl(
+      this.templatePath('_package.json'),
+      this.destinationPath('package.json'), {
+        name: this.props.name,
+        author: this.props.author,
+        description: this.props.description
+      }
+    );
+
   }
 
   install() {
