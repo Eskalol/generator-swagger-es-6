@@ -11,9 +11,20 @@ module.exports = class extends Generator {
     ));
 
     const prompts = [{
-      name: 'swagger-es6-project',
-      author: '',
-      description: ''
+      type: 'input',
+      name: 'name',
+      message: 'Your project name.',
+      default: this.appname
+    }, {
+      type: 'input',
+      name: 'author',
+      message: 'Your name.',
+      store: true
+    }, {
+      'type': 'input',
+      'name': 'description',
+      'message': 'Write a description.',
+      'default': ''
     }];
 
     return this.prompt(prompts).then(props => {

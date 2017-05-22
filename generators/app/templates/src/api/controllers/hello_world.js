@@ -34,6 +34,4 @@ function hello(req, res) {
   res.json(hello);
 }
 
-export {
-  hello: hello,
-};
+export { hello };
