@@ -1,12 +1,13 @@
-var Generator = require('yeoman-generator');
+import server, { init } from './app';
 
-module.exports = class extends Generator {
-  // The name `constructor` is important here
-  constructor(args, opts) {
-    // Calling the super constructor is important so our generator is correctly set up
-    super(args, opts);
+// Set default node environment to development
+const env = process.env.NODE_ENV || 'development';
+process.env.NODE_ENV = env;
 
-    // Next, add your custom code
-    this.option('babel'); // This method adds support for a `--babel` flag
-  }
-};
+if (env === 'development' || env === 'test') {
+  console.log(`Environment is set to: ${env}`);
+}
+
+init();
+
+export default server;
