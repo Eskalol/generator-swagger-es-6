@@ -1,8 +1,6 @@
 // Production specific configuration
 // =================================
 
-process.env.NODE_CONFIG_DIR = 'dist/config';
-
 export default {
   // Server IP
   ip: process.env.OPENSHIFT_NODEJS_IP
