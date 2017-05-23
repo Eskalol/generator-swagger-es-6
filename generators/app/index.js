@@ -21,10 +21,14 @@ module.exports = class extends Generator {
       message: 'Your name.',
       store: true
     }, {
-      'type': 'input',
-      'name': 'description',
-      'message': 'Write a description.',
-      'default': ''
+      type: 'input',
+      name: 'description',
+      message: 'Write a description.',
+      default: ''
+    }, {
+      type: 'confirm',
+      name: 'eslint',
+      message: 'Would you like to enable eslint with airbnb config?'
     }];
 
     return this.prompt(prompts).then(props => {
@@ -34,6 +38,17 @@ module.exports = class extends Generator {
   }
 
   writing() {
+    if (this.props.eslint) {
+      this.fs.copy(
+        this.templatePath('.editorconfig'),
+        this.destinationPath('.editorconfig')
+      );
+      this.fs.copy(
+        this.destinationPath('.eslintrc.js'),
+        this.destinationPath('.eslintrc.js')
+      );
+    }
+
     this.fs.copy(
       this.templatePath('src/'),
       this.destinationPath('src/')
@@ -46,10 +61,13 @@ module.exports = class extends Generator {
         description: this.props.description
       }
     );
-
   }
 
   install() {
-    this.installDependencies();
+    this.installDependencies({
+      npm: true,
+      bower: false,
+      yarn: false
+    });
   }
 };
