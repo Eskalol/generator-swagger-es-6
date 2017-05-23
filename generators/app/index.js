@@ -40,11 +40,11 @@ module.exports = class extends Generator {
   writing() {
     if (this.props.eslint) {
       this.fs.copy(
-        this.templatePath('.editorconfig'),
+        this.templatePath('editorconfig'),
         this.destinationPath('.editorconfig')
       );
       this.fs.copy(
-        this.destinationPath('.eslintrc.js'),
+        this.templatePath('eslintrc.js'),
         this.destinationPath('.eslintrc.js')
       );
     }

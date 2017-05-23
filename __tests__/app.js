@@ -6,12 +6,17 @@ var helpers = require('yeoman-test');
 describe('generator-swagger-es-6:app', () => {
   beforeAll(() => {
     return helpers.run(path.join(__dirname, '../generators/app'))
-      .withPrompts({someAnswer: true});
+      .withPrompts({
+        name: 'cool',
+        author: 'super cool',
+        description: 'cool descr',
+        eslint: true
+      });
   });
 
   it('creates files', () => {
     assert.file([
-      'src'
+      'src', '.editorconfig', '.eslintrc.js'
     ]);
   });
 });
