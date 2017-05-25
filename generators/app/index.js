@@ -69,5 +69,12 @@ module.exports = class extends Generator {
       bower: false,
       yarn: false
     });
+
+    if (this.props.eslint) {
+      this.npmInstall(['eslint',
+        'eslint-config-airbnb-base',
+        'eslint-plugin-import'],
+        { 'save-dev': true });
+    }
   }
 };
