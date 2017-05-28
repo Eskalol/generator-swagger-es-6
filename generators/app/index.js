@@ -74,7 +74,7 @@ module.exports = class extends Generator {
       this.npmInstall(['eslint',
         'eslint-config-airbnb-base',
         'eslint-plugin-import'],
-        { 'save-dev': true });
+        {'save-dev': true});
     }
   }
 };
