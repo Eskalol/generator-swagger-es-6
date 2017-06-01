@@ -1,6 +1,6 @@
 {
   "name": "generator-swagger-es-6",
-  "version": "0.1.0a",
+  "version": "0.1.1a",
   "description": "Yeoman generator for swagger with es6",
   "homepage": "https://github.com/Eskalol/generator-swagger-es-6",
   "author": "Eskil Opdahl Nordland <eskil.nordland@gmail.com>",
