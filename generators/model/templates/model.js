@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-let <%= name %>Schema = new mongoose.Schema({
+const <%= name %>Schema = new mongoose.Schema({
 
 });
 
