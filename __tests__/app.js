@@ -17,7 +17,7 @@ test.before(() => {
 
 test('with eslint', () => {
   assert.file([
-    'src', '.editorconfig', '.eslintrc.js', 'package.json'
+    'src', '.editorconfig', '.eslintrc.js', 'package.json', '.gitignore'
   ]);
 });
 

@@ -38,6 +38,10 @@ module.exports = class extends Generator {
   }
 
   writing() {
+    this.fs.copy(
+      this.templatePath('gitignore'),
+      this.destinationPath('.gitignore')
+    );
     if (this.props.eslint) {
       this.fs.copy(
         this.templatePath('editorconfig'),
