@@ -1,42 +1,38 @@
 'use strict';
-var path = require('path');
-var assert = require('yeoman-assert');
-var helpers = require('yeoman-test');
 
-describe('generator-swagger-es-6:app', () => {
-  describe('with eslint', () => {
-    beforeAll(() => {
-      return helpers.run(path.join(__dirname, '../generators/app'))
-        .withPrompts({
-          name: 'cool',
-          author: 'super cool',
-          description: 'cool descr',
-          eslint: true
-        });
-    });
+const path = require('path');
+const assert = require('yeoman-assert');
+const helpers = require('yeoman-test');
+const test = require('ava');
 
-    it('creates files', () => {
-      assert.file([
-        'src', '.editorconfig', '.eslintrc.js', 'package.json'
-      ]);
+test.before(() => {
+  return helpers.run(path.join(__dirname, '../generators/app'))
+    .withPrompts({
+      name: 'cool',
+      author: 'super cool',
+      description: 'cool descr',
+      eslint: true
     });
-  });
-
-  describe('without eslint', () => {
-    beforeAll(() => {
-      return helpers.run(path.join(__dirname, '../generators/app'))
-        .withPrompts({
-          name: 'cool',
-          author: 'super cool',
-          description: 'cool descr',
-          eslint: false
-        });
-    });
-
-    it('creates files', () => {
-      assert.file([
-        'src', 'package.json'
-      ]);
-    });
-  });
 });
+
+test('with eslint', () => {
+  assert.file([
+    'src', '.editorconfig', '.eslintrc.js', 'package.json'
+  ]);
+});
+
+// test.before(() => {
+//   return helpers.run(path.join(__dirname, '../generators/app'))
+//     .withPrompts({
+//       name: 'cool',
+//       author: 'super cool',
+//       description: 'cool descr',
+//       eslint: false
+//     });
+// });
+
+// test('without eslint', () => {
+//   assert.file([
+//     'src', 'package.json'
+//   ]);
+// });
