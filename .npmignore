@@ -1,0 +1,8 @@
+.travis.yml
+__tests__
+.coveralls.yml
+.gitignore
+.yo-rc.json
+.editorconfig
+.eslintignore
+.gitattributes
