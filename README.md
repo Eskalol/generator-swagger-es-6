@@ -1,5 +1,5 @@
 # generator-swagger-es-6
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![codecov][codecov-image]][codecov-url]
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![codecov][codecov-image]][codecov-url][![GitHub license][license-image]][license-url]
 > Yeoman generator for generating a swagger project, using ES6, MongoDB, Express, and Node - lets you quickly set up a project avoiding fatigue.
 
 ## Installation
@@ -35,11 +35,14 @@ yo swagger-es-6:model
 MIT © [Eskil Opdahl Nordland]()
 
 
-[npm-image]: https://badge.fury.io/js/generator-swagger-es-6.svg
+[npm-image]: http://img.shields.io/npm/v/generator-swagger-es-6.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/generator-swagger-es-6
-[travis-image]: https://travis-ci.org/Eskalol/generator-swagger-es-6.svg?branch=master
+[travis-image]: https://img.shields.io/travis/Eskalol/generator-swagger-es-6/master.svg?style=flat-square
 [travis-url]: https://travis-ci.org/Eskalol/generator-swagger-es-6
-[daviddm-image]: https://david-dm.org/Eskalol/generator-swagger-es-6.svg?theme=shields.io
+[daviddm-image]: http://img.shields.io/david/Eskalol/generator-swagger-es-6.svg?style=flat-square
 [daviddm-url]: https://david-dm.org/Eskalol/generator-swagger-es-6
 [codecov-url]: https://codecov.io/gh/Eskalol/generator-swagger-es-6
-[codecov-image]: https://codecov.io/gh/Eskalol/generator-swagger-es-6/branch/master/graph/badge.svg
+[codecov-image]: https://img.shields.io/codecov/c/github/Eskalol/generator-swagger-es-6.svg?style=flat-square
+[license-url]: https://raw.githubusercontent.com/Eskalol/generator-swagger-es-6/master/LICENSE
+[license-image]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
+
