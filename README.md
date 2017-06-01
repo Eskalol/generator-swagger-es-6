@@ -21,6 +21,7 @@ yo swagger-es-6
 ## Generators
 ```bash
 yo swagger-es-6:model
+yo swagger-es-6:controller
 ```
 
 ## Getting To Know Yeoman
