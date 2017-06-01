@@ -1,6 +1,5 @@
 'use strict';
 const Generator = require('yeoman-generator');
-const chalk = require('chalk');
 const yosay = require('yosay');
 
 module.exports = class extends Generator {
@@ -12,11 +11,11 @@ module.exports = class extends Generator {
     const prompts = [{
       type: 'input',
       name: 'controller',
-      message: 'The name of your restful controller? ',
-    },{
+      message: 'The name of your restful controller? '
+    }, {
       type: 'input',
       name: 'model',
-      message: 'The model you want a controller for? ',
+      message: 'The model you want a controller for? '
     }, {
       type: 'input',
       name: 'route',
@@ -34,7 +33,7 @@ module.exports = class extends Generator {
       this.destinationPath(`src/api/controllers/${this.props.controller}.js`), {
         controller: this.props.controller,
         model: this.props.model,
-        route: this.props.route,
+        route: this.props.route
       }
     );
     this.fs.copyTpl(
@@ -42,7 +41,7 @@ module.exports = class extends Generator {
       this.destinationPath(`src/test/controllers/${this.props.controller}.js`), {
         controller: this.props.controller,
         model: this.props.model,
-        route: this.props.route,
+        route: this.props.route
       }
     );
   }
