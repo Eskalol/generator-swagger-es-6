@@ -27,5 +27,11 @@ module.exports = class extends Generator {
         name: this.props.name
       }
     );
+    this.fs.copyTpl(
+      this.templatePath('test.js'),
+      this.destinationPath(`src/test/models/${this.props.name}.js`), {
+        name: this.props.name
+      }
+    );
   }
 };

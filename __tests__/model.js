@@ -14,6 +14,7 @@ test.before(() => {
 
 test('swagger-es-6:model ', () => {
   assert.file([
-    'src/models/Coo.js'
+    'src/models/Coo.js',
+    'src/test/models/Coo.js'
   ]);
 });
