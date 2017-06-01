@@ -1,5 +1,5 @@
 # generator-swagger-es-6
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage Status](https://coveralls.io/repos/github/Eskalol/generator-swagger-es-6/badge.svg?branch=master)](https://coveralls.io/github/Eskalol/generator-swagger-es-6?branch=master)
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![codecov][codecov-image]][codecov-url]
 > Yeoman generator for generating a swagger project, using ES6, MongoDB, Express, and Node - lets you quickly set up a project avoiding fatigue.
 
 ## Installation
@@ -41,5 +41,5 @@ MIT © [Eskil Opdahl Nordland]()
 [travis-url]: https://travis-ci.org/Eskalol/generator-swagger-es-6
 [daviddm-image]: https://david-dm.org/Eskalol/generator-swagger-es-6.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/Eskalol/generator-swagger-es-6
-[coveralls-image]: https://coveralls.io/repos/Eskalol/generator-swagger-es-6/badge.svg
-[coveralls-url]: https://coveralls.io/r/Eskalol/generator-swagger-es-6
+[codecov-url]: https://codecov.io/gh/Eskalol/generator-swagger-es-6
+[codecov-image]: https://codecov.io/gh/Eskalol/generator-swagger-es-6/branch/master/graph/badge.svg
