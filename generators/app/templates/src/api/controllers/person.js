@@ -1,62 +1,75 @@
-import jsonpatch from 'fast-json-patch';
+/**
+ * Using Rails-like standard naming convention for endpoints.
+ * GET     /person              ->  index
+ * POST    /person              ->  create
+ * GET     /person/:id          ->  show
+ * PUT     /person/:id          ->  upsert
+ * PATCH   /person/:id          ->  patch
+ * DELETE  /person/:id          ->  destroy
+ */
 
-function respondWithResult(res, statusCode) {
-  return (entity) => {
-    if (entity) {
-      return res.status(statusCode || 200).json(entity);
-    }
-    return null;
-  };
+import Person from '../../models/person';
+import {
+  respondWithResult,
+  handleError,
+  handleEntityNotFound,
+  patchUpdates,
+  removeEntity,
+} from './helpers';
+
+// Gets a list of persons
+function index(req, res) {
+  return Person.find().exec()
+    .then(respondWithResult(res))
+    .catch(handleError(res));
 }
 
-function handleError(res, statusCode) {
-  const status = statusCode || 500;
-  return (err) => {
-    if (err) {
-      return res.status(status).json({
-        message: err,
-      });
-    }
-    return null;
-  };
+// Gets a specific person by id
+function show(req, res) {
+  return Person.findById(req.swagger.params.id.value).exec()
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
 }
 
-function handleEntityNotFound(res) {
-  return (entity) => {
-    if (!entity) {
-      res.status(404).end();
-      return null;
-    }
-    return entity;
-  };
+// Creates a person
+function create(req, res) {
+  return Person.create(req.body)
+    .then(respondWithResult(res, 201))
+    .catch(handleError(res));
 }
 
-function patchUpdates(patches) {
-  console.log(patches);
-  return (entity) => {
-    console.log(entity);
-    try {
-      console.log(jsonpatch.applyPatch(entity, patches, /* validate */ true));
-
-    } catch (err) {
-      return Promise.reject(err);
-    }
-    console.log(entity);
-    return entity.save();
-  };
+// upsert(put) a specific person
+function upsert(req, res) {
+  return Person.findOneAndUpdate({
+    _id: req.swagger.params.id.value,
+  },
+  req.body,
+    {
+      new: true,
+      upsert: true,
+      setDefaultsOnInsert: true,
+      runValidators: true,
+    }).exec()
+  .then(respondWithResult(res, 200))
+  .catch(handleError(res));
 }
 
-function removeEntity(res) {
-  return (entity) => {
-    if (entity) {
-      return entity.remove()
-        .then(() => {
-          res.status(204).end();
-        });
-    }
-    return null;
-  };
+// patch a specific person
+function patch(req, res) {
+  return Person.findById(req.swagger.params.id.value).exec()
+    .then(handleEntityNotFound(res))
+    .then(patchUpdates(req.body))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
 }
 
-export default respondWithResult;
-export { handleError, handleEntityNotFound, respondWithResult, patchUpdates, removeEntity };
+// destroy a specifix person
+function destroy(req, res) {
+  return Person.findById(req.swagger.params.id.value).exec()
+    .then(handleEntityNotFound(res))
+    .then(removeEntity(res))
+    .catch(handleError(res));
+}
+
+export { index, show, upsert, patch, destroy, create };

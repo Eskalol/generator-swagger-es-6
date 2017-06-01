@@ -11,6 +11,7 @@
     "express": "^4.12.3",
     "lodash": "^4.17.4",
     "mongoose": "^4.10.1",
+    "fast-json-patch": "^1.2.0",
     "swagger-express-mw": "^0.1.0"
   },
   "devDependencies": {
@@ -21,7 +22,8 @@
     "babel-preset-stage-0": "^6.24.1",
     "babel-watch": "^2.0.6",
     "should": "^7.1.0",
-    "supertest": "^1.0.0"
+    "supertest": "^1.0.0",
+    "mocha": "^3.4.2"
   },
   "babel": {
     "presets": [
@@ -40,6 +42,7 @@
     "build": "babel src -d dist --copy-files",
     "watch": "babel -w src/index.js -d dist -s",
     "babel-version": "babel --version",
-    "lint": "eslint src/"
+    "lint": "eslint src/api/ src/config/ src/models/ src/app.js src/index.js",
+    "test": "mocha src/test/**/*.js --compilers js:babel-core/register -R spec --timeout 5000"
   }
 }

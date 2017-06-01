@@ -32,16 +32,12 @@ function handleEntityNotFound(res) {
 }
 
 function patchUpdates(patches) {
-  console.log(patches);
   return (entity) => {
-    console.log(entity);
     try {
-      console.log(jsonpatch.applyPatch(entity, patches, /* validate */ true));
-
+      jsonpatch.applyPatch(entity, patches, /* validate */ true);
     } catch (err) {
       return Promise.reject(err);
     }
-    console.log(entity);
     return entity.save();
   };
 }
@@ -51,12 +47,13 @@ function removeEntity(res) {
     if (entity) {
       return entity.remove()
         .then(() => {
-          res.status(204).end();
+          res.status(200).json({
+            message: 'entity deleted',
+          });
         });
     }
     return null;
   };
 }
 
-export default respondWithResult;
 export { handleError, handleEntityNotFound, respondWithResult, patchUpdates, removeEntity };

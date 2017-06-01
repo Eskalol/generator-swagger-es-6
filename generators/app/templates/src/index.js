@@ -6,7 +6,7 @@ process.env.NODE_ENV = env;
 
 if (env === 'development' || env === 'test') {
   process.env.NODE_CONFIG_DIR = 'src/config';
-  console.log(`Environment is set to: ${env}`);
+  console.log(`Environment is set to: ${env}`); // eslint-disable-line no-console
 } else {
   process.env.NODE_CONFIG_DIR = 'dist/config';
 }

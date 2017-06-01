@@ -1,7 +1,7 @@
 import SwaggerExpress from 'swagger-express-mw';
 import app from 'express';
 import config from './config/environment';
-import db from './config/db';
+import db from './config/db'; // eslint-disable-line no-unused-vars
 
 const server = app();
 
