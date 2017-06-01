@@ -1,5 +1,5 @@
-# generator-swagger-es-6 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage Status](https://coveralls.io/repos/github/Eskalol/generator-swagger-es-6/badge.svg?branch=master)](https://coveralls.io/github/Eskalol/generator-swagger-es-6?branch=master)
-> 
+# generator-swagger-es-6
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage Status](https://coveralls.io/repos/github/Eskalol/generator-swagger-es-6/badge.svg?branch=master)](https://coveralls.io/github/Eskalol/generator-swagger-es-6?branch=master)
 
 ## Installation
 
@@ -15,6 +15,11 @@ Then generate your new project:
 
 ```bash
 yo swagger-es-6
+```
+
+## Generators
+```bash
+yo swagger-es-6:model
 ```
 
 ## Getting To Know Yeoman
