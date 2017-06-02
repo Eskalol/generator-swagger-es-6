@@ -1,5 +1,5 @@
 # generator-swagger-es-6
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Code Climate][code-climate-image]][code-climate-url] [![codecov][codecov-image]][codecov-url] [![GitHub license][license-image]][license-url] [![Downloads][npm-downloads-image]][npm-url]
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![codecov][codecov-image]][codecov-url] [![Code Climate][code-climate-image]][code-climate-url] [![Dependency Status][daviddm-image]][daviddm-url] [![GitHub license][license-image]][license-url] [![Downloads][npm-downloads-image]][npm-url]
 > Yeoman generator for generating a swagger project, using ES6, MongoDB, Express, and Node - lets you quickly set up a project avoiding fatigue.
 
 ## Installation
