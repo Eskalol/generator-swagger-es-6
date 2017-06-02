@@ -7,3 +7,4 @@ __tests__
 .gitattributes
 .nyc_output
 gulpfile.js
+appveyor.yml
