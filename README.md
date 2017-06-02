@@ -1,5 +1,5 @@
 # generator-swagger-es-6
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![codecov][codecov-image]][codecov-url] [![GitHub license][license-image]][license-url] [![Downloads][npm-downloads-image]][npm-url]
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Code Climate][code-climate-image]][code-climate-url] [![codecov][codecov-image]][codecov-url] [![GitHub license][license-image]][license-url] [![Downloads][npm-downloads-image]][npm-url]
 > Yeoman generator for generating a swagger project, using ES6, MongoDB, Express, and Node - lets you quickly set up a project avoiding fatigue.
 
 ## Installation
@@ -47,3 +47,5 @@ MIT © [Eskil Opdahl Nordland]()
 [license-url]: https://raw.githubusercontent.com/Eskalol/generator-swagger-es-6/master/LICENSE
 [license-image]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
 [npm-downloads-image]: https://img.shields.io/npm/dt/generator-swagger-es-6.svg?style=flat-square
+[code-climate-url]: https://codeclimate.com/github/Eskalol/generator-swagger-es-6
+[code-climate-image]: https://img.shields.io/codeclimate/github/Eskalol/generator-swagger-es-6.svg?style=flat-square
