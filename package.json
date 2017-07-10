@@ -1,6 +1,6 @@
 {
   "name": "generator-swagger-es-6",
-  "version": "0.1.3a",
+  "version": "0.1.5a",
   "description": "Yeoman generator for swagger with ES6, Express, MongoDB.",
   "homepage": "https://github.com/Eskalol/generator-swagger-es-6",
   "author": "Eskil Opdahl Nordland <eskil.nordland@gmail.com>",
@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "yeoman-generator": "^1.0.0",
-    "chalk": "^1.1.3",
+    "chalk": "^2.0.1",
     "yosay": "^2.0.0"
   },
   "nyc": {
