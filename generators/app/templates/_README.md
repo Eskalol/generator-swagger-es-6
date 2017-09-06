@@ -18,7 +18,7 @@ $ docker-compose up
 ```
 <%}%>
 
-[daviddm-image]: http://img.shields.io/david/<%= repoName %>?style=flat-square
+[daviddm-image]: http://img.shields.io/david/<%= repoName %>.svg?style=flat-square
 [daviddm-url]: https://david-dm.org/<%= repoName %>
 <% if (appveyor) {%>
 [appveyor-image]: https://img.shields.io/appveyor/ci/<%= repoName %>.svg?style=flat-square
