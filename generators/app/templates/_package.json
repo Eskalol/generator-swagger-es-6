@@ -46,5 +46,10 @@
     "babel-version": "babel --version",
     "lint": "eslint src/api/ src/config/ src/models/ src/app.js src/index.js",
     "test": "mocha src/test/**/*.js --compilers js:babel-core/register -R spec --timeout 5000"
-  }
+  }<%
+   if (git != '') {%>,
+  "repository": {
+    "type": "git",
+    "url": "git+<%= git %>"
+  } <% } %>
 }

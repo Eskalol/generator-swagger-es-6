@@ -26,6 +26,11 @@ module.exports = class extends Generator {
       message: 'Write a description.',
       default: ''
     }, {
+      type: 'input',
+      name: 'git',
+      message: 'Your git repository.',
+      default: ''
+    }, {
       type: 'confirm',
       name: 'eslint',
       message: 'Would you like to enable eslint with airbnb config?'
@@ -36,7 +41,7 @@ module.exports = class extends Generator {
     }, {
       type: 'confirm',
       name: 'heroku',
-      message: 'Would you like to deploy on heroku?'
+      message: 'Initialize Procfile for heroku?'
     }];
 
     return this.prompt(prompts).then(props => {
@@ -70,7 +75,8 @@ module.exports = class extends Generator {
       this.destinationPath('package.json'), {
         name: this.props.name,
         author: this.props.author,
-        description: this.props.description
+        description: this.props.description,
+        git: this.props.git
       }
     );
     if (this.props.docker) {
@@ -89,6 +95,12 @@ module.exports = class extends Generator {
       this.fs.copy(
         this.templatePath('_env'),
         this.destinationPath('.env')
+      );
+    }
+    if (this.props.heroku) {
+      this.fs.copy(
+        this.templatePath('_Procfile'),
+        this.destinationPath('Procfile')
       );
     }
   }
