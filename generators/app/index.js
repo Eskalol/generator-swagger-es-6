@@ -29,6 +29,14 @@ module.exports = class extends Generator {
       type: 'confirm',
       name: 'eslint',
       message: 'Would you like to enable eslint with airbnb config?'
+    }, {
+      type: 'confirm',
+      name: 'docker',
+      message: 'Would you like to deploy with docker?'
+    }, {
+      type: 'confirm',
+      name: 'heroku',
+      message: 'Would you like to deploy on heroku?'
     }];
 
     return this.prompt(prompts).then(props => {
@@ -65,6 +73,24 @@ module.exports = class extends Generator {
         description: this.props.description
       }
     );
+    if (this.props.docker) {
+      this.fs.copyTpl(
+        this.templatePath('_Dockerfile'),
+        this.destinationPath('Dockerfile'), {
+          cwd: `${process.cwd()}`
+        }
+      );
+      this.fs.copyTpl(
+        this.templatePath('_docker-compose.yml'),
+        this.destinationPath('docker-compose.yml'), {
+          cwd: `${process.cwd()}`
+        }
+      );
+      this.fs.copy(
+        this.templatePath('_env'),
+        this.destinationPath('.env')
+      );
+    }
   }
 
   install() {

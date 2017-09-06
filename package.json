@@ -59,5 +59,8 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/eskalol/generator-swagger-es-6/issues"
+  },
+  "scrips": {
+    "test": "gulp test"
   }
 }

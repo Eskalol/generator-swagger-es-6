@@ -1,0 +1,4 @@
+ip=0.0.0.0
+port=8080
+MONGODB_URI=mongodb://mongo
+NODE_ENV=production

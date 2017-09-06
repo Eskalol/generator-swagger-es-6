@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  mongo:
+    image: mongo
+    ports: ["27017:27017"]
+  web:
+    env_file: .env
+    build:
+      context: .
+
+    volumes: [".:/app"]
+
+    ports: ["3000:8080"]
+
+    links: [mongo]
