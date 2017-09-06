@@ -1,5 +1,5 @@
 # <%= name %>
-[![Dependency Status][daviddm-image]][daviddm-url]
+[![Dependency Status][daviddm-image]][daviddm-url] <% if (travis) {%>[![Build Status][travis-image]][travis-url]<%}%> <% if (appveyor) {%>[![AppVeyor][appveyor-image]][appveyor-url]<%}%>
 
 
 ## Development setup
@@ -20,3 +20,11 @@ $ docker-compose up
 
 [daviddm-image]: http://img.shields.io/david/<%= repoName %>?style=flat-square
 [daviddm-url]: https://david-dm.org/<%= repoName %>
+<% if (appveyor) {%>
+[appveyor-image]: https://img.shields.io/appveyor/ci/<%= repoName %>.svg?style=flat-square
+[appveyor-url]: https://ci.appveyor.com/project/<%= repoName %>
+<%}%>
+<% if (travis) {%>
+[travis-image]: https://img.shields.io/travis/<%= repoName %>.svg?style=flat-square
+[travis-url]: https://travis-ci.org/<%= repoName %>
+<%}%>

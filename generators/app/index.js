@@ -35,6 +35,19 @@ module.exports = class extends Generator {
       name: 'eslint',
       message: 'Would you like to enable eslint with airbnb config?'
     }, {
+      type: 'checkbox',
+      name: 'CI',
+      message: 'Which CI\'s would you like to use?',
+      choices: [{
+        name: 'travis',
+        value: 'Travis-CI',
+        checked: false
+      }, {
+        name: 'appveyor',
+        value: 'Appveyor',
+        checked: false
+      }]
+    }, {
       type: 'confirm',
       name: 'docker',
       message: 'Would you like to deploy with docker?'
@@ -109,20 +122,32 @@ module.exports = class extends Generator {
         git: this.props.git,
         name: this.props.name,
         repoName: this.parseGitReopName(this.props.git),
-        docker: this.props.docker
+        docker: this.props.docker,
+        travis: this.props.CI && this.props.CI.includes('Travis-CI'),
+        appveyor: this.props.CI && this.props.CI.includes('Appveyor')
       }
     );
+    if (this.props.CI && this.props.CI.includes('Travis-CI')) {
+      this.fs.copy(
+        this.templatePath('_travis.yml'),
+        this.destinationPath('.travis.yml')
+      );
+    }
+    if (this.props.CI && this.props.CI.includes('Appveyor')) {
+      this.fs.copy(
+        this.templatePath('_appveyor.yml'),
+        this.destinationPath('appveyor.yml')
+      );
+    }
   }
 
   parseGitReopName(git) {
-    var regex = new RegExp(/(?:\.[a-z]+[\:|\/])(.+)(?:\.git)/);
+    var regex = new RegExp(/(?:\.[a-z]+[\:|\/])(.+)(?:\.git)/); // eslint-disable-line no-useless-escape
     var match = String(git).match(regex);
-    console.log(match);
     if (match) {
       return match[1];
-    } else {
-      return '';
     }
+    return '';
   }
 
   install() {

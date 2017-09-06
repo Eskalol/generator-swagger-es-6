@@ -11,13 +11,26 @@ test.before(() => {
       name: 'cool',
       author: 'super cool',
       description: 'cool descr',
-      eslint: true
+      eslint: true,
+      CI: ['Travis-CI', 'Appveyor'],
+      docker: true,
+      heroku: true
     });
 });
 
 test('with eslint', () => {
   assert.file([
-    'src', '.editorconfig', '.eslintrc.js', 'package.json', '.gitignore'
+    'src',
+    '.editorconfig',
+    '.eslintrc.js',
+    'package.json',
+    '.gitignore',
+    '.travis.yml',
+    'appveyor.yml',
+    'README.md',
+    'docker-compose.yml',
+    'Dockerfile',
+    'Procfile'
   ]);
 });
 
