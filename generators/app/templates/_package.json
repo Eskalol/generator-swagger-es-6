@@ -11,7 +11,7 @@
     "express": "^4.12.3",
     "lodash": "^4.17.4",
     "mongoose": "^4.10.1",
-    "fast-json-patch": "^1.2.0",
+    "fast-json-patch": "^2.0.5",
     "swagger-express-mw": "^0.1.0"
   },
   "devDependencies": {
