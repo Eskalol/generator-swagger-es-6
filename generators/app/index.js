@@ -103,6 +103,26 @@ module.exports = class extends Generator {
         this.destinationPath('Procfile')
       );
     }
+    this.fs.copyTpl(
+      this.templatePath('_README.md'),
+      this.destinationPath('README.md'), {
+        git: this.props.git,
+        name: this.props.name,
+        repoName: this.parseGitReopName(this.props.git),
+        docker: this.props.docker
+      }
+    );
+  }
+
+  parseGitReopName(git) {
+    var regex = new RegExp(/(?:\.[a-z]+[\:|\/])(.+)(?:\.git)/);
+    var match = String(git).match(regex);
+    console.log(match);
+    if (match) {
+      return match[1];
+    } else {
+      return '';
+    }
   }
 
   install() {
