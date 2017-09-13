@@ -18,14 +18,14 @@ import {
 } from './helpers';
 
 // Gets a list of persons
-function index(req, res) {
+export function indexPerson(req, res) {
   return Person.find().exec()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
 // Gets a specific person by id
-function show(req, res) {
+export function showPerson(req, res) {
   return Person.findById(req.swagger.params.id.value).exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
@@ -33,30 +33,30 @@ function show(req, res) {
 }
 
 // Creates a person
-function create(req, res) {
+export function createPerson(req, res) {
   return Person.create(req.body)
     .then(respondWithResult(res, 201))
     .catch(handleError(res));
 }
 
 // upsert(put) a specific person
-function upsert(req, res) {
+export function upsertPerson(req, res) {
   return Person.findOneAndUpdate({
     _id: req.swagger.params.id.value,
-  },
-  req.body,
+    },
+    req.body,
     {
       new: true,
       upsert: true,
       setDefaultsOnInsert: true,
       runValidators: true,
     }).exec()
-  .then(respondWithResult(res, 200))
-  .catch(handleError(res));
+    .then(respondWithResult(res, 200))
+    .catch(handleError(res));
 }
 
 // patch a specific person
-function patch(req, res) {
+export function patchPerson(req, res) {
   return Person.findById(req.swagger.params.id.value).exec()
     .then(handleEntityNotFound(res))
     .then(patchUpdates(req.body))
@@ -65,11 +65,9 @@ function patch(req, res) {
 }
 
 // destroy a specifix person
-function destroy(req, res) {
+export function destroyPerson(req, res) {
   return Person.findById(req.swagger.params.id.value).exec()
     .then(handleEntityNotFound(res))
     .then(removeEntity(res))
     .catch(handleError(res));
 }
-
-export { index, show, upsert, patch, destroy, create };

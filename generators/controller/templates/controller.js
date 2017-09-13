@@ -18,14 +18,14 @@ import {
 } from './helpers';
 
 // Gets a list of persons
-function index(req, res) {
+export function index<%= model %>(req, res) {
   return <%= model %>.find().exec()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
 // Gets a specific <%= model %> by id
-function show(req, res) {
+export function show<%= model %>(req, res) {
   return <%= model %>.findById(req.swagger.params.id.value).exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
@@ -33,14 +33,14 @@ function show(req, res) {
 }
 
 // Creates a <%= model %>
-function create(req, res) {
+export function create<%= model %>(req, res) {
   return <%= model %>.create(req.body)
     .then(respondWithResult(res, 201))
     .catch(handleError(res));
 }
 
 // upsert(put) a specific <%= model %>
-function upsert(req, res) {
+export function upsert<%= model %>(req, res) {
   return <%= model %>.findOneAndUpdate({
     _id: req.swagger.params.id.value,
   },
@@ -56,7 +56,7 @@ function upsert(req, res) {
 }
 
 // patch a specific <%= model %>
-function patch(req, res) {
+export function patch<%= model %>(req, res) {
   return <%= model %>.findById(req.swagger.params.id.value).exec()
     .then(handleEntityNotFound(res))
     .then(patchUpdates(req.body))
@@ -65,11 +65,10 @@ function patch(req, res) {
 }
 
 // destroy a specifix <%= model %>
-function destroy(req, res) {
+export function destroy<%= model %>(req, res) {
   return <%= model %>.findById(req.swagger.params.id.value).exec()
     .then(handleEntityNotFound(res))
     .then(removeEntity(res))
     .catch(handleError(res));
 }
 
-export { index, show, upsert, patch, destroy, create };

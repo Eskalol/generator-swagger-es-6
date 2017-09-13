@@ -23,7 +23,7 @@ paths:
     x-swagger-router-controller: person
     get:
       description: Gets a specific person
-      operationId: show
+      operationId: showPerson
       parameters:
         - name: id
           in: path
@@ -43,7 +43,7 @@ paths:
 
     put:
       description: upsert a person
-      operationId: upsert
+      operationId: upsertPerson
       parameters:
         - name: id
           in: path
@@ -69,7 +69,7 @@ paths:
 
     patch:
       description: partial update of a person
-      operationId: patch
+      operationId: patchPerson
       parameters:
         - name: id
           in: path
@@ -95,7 +95,7 @@ paths:
 
     delete:
       description: delete a specific user
-      operationId: destroy
+      operationId: destroyPerson
       parameters:
         - name: id
           in: path
@@ -115,7 +115,7 @@ paths:
     x-swagger-router-controller: person
     get:
       description: Returns a list of all persons
-      operationId: index
+      operationId: indexPerson
       responses:
         "200":
           description: Success
@@ -124,7 +124,7 @@ paths:
 
     post:
       description: Creates a person
-      operationId: create
+      operationId: createPerson
       parameters:
         - in: body
           name: body
