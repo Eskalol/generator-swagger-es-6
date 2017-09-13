@@ -50,21 +50,12 @@ paths:
           description: id of user
           required: true
           type: string
-        - name: name
-          in: formData
-          description: the new name of the person
+        - in: body
+          name: body
+          description: Person object data to update
           required: true
-          type: string
-        - name: description
-          in: formData
-          description: the description of a person
-          required: true
-          type: string
-        - name: age
-          in: formData
-          description: the age of a person
-          required: true
-          type: integer
+          schema:
+            $ref: '#/definitions/Person'
       responses:
         "200":
           description: Success
@@ -135,21 +126,13 @@ paths:
       description: Creates a person
       operationId: create
       parameters:
-        - name: name
-          in: formData
-          description: the new name of the person
+        - in: body
+          name: body
+          description: Person object added to the databse
           required: true
-          type: string
-        - name: description
-          in: formData
-          description: the description of a person
-          required: true
-          type: string
-        - name: age
-          in: formData
-          description: the age of a person
-          required: true
-          type: integer
+          schema:
+            $ref: '#/definitions/Person'
+
       responses:
         "201":
           description: Success
@@ -166,22 +149,18 @@ paths:
 # complex objects have schema definitions
 definitions:
   PersonListResponse:
-    required:
-      - persons
-    properties:
-      persons:
-        type: array
-        items:
-          type: object
-          properties:
-            _id:
-              type: string
-            name:
-              type: string
-            description:
-              type: string
-            age:
-              type: integer
+    type: array
+    items:
+      type: object
+      properties:
+        _id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        age:
+          type: integer
 
   PersonResponse:
     required:
@@ -226,6 +205,22 @@ definitions:
      from:
       type: string
       description: A string containing a JSON Pointer value.
+
+# Post definitions
+  Person:
+    title: A person
+    type: object
+    required:
+      - name
+      - description
+      - age
+    properties:
+      name:
+        type: string
+      description:
+        type: string
+      age:
+        type: integer
 
   ErrorResponse:
     required:
