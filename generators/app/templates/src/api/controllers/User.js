@@ -14,23 +14,18 @@ import {
   respondWithResult,
   handleError,
   handleEntityNotFound,
-  patchUpdates,
   removeEntity,
 } from './helpers';
 
 // Gets a list of persons
 export function indexUser(req, res) {
   return User.find().exec()
-    .then(users => {
-      return users.map(user => {
-        return {
-          _id: user._id,
-          name: user.name,
-          email: user.email,
-          role: user.role
-        };
-      });
-    })
+    .then(users => users.map(user => ({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      role: user.role,
+    })))
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
@@ -38,14 +33,12 @@ export function indexUser(req, res) {
 // Gets a specific User by id
 export function showUser(req, res) {
   return User.findById(req.swagger.params.id.value).exec()
-    .then(user => {
-      return {
-        _id: user._id,
-        name: user.name,
-        email: user.email,
-        role: user.role
-      };
-    })
+    .then(user => ({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      role: user.role,
+    }))
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));
@@ -57,7 +50,7 @@ export function showUserMe(req, res) {
     _id: req.user._id,
     name: req.user.name,
     email: req.user.email,
-    role: req.user.role
+    role: req.user.role,
   });
 }
 
@@ -75,7 +68,7 @@ export function upsertUserMe(req, res) {
   return req.user.save()
     .then((user) => {
       res.status(200).json({
-        message
+        message,
       });
       return null;
     })
@@ -84,13 +77,11 @@ export function upsertUserMe(req, res) {
 
 // Creates a User
 export function createUser(req, res) {
-  var newUser = new User(req.body);
+  const newUser = new User(req.body);
   newUser.provider = 'local';
   newUser.role = 'user';
   return newUser.save()
-    .then(user => {
-      return { token: signToken(user._id, user.role) };
-    })
+    .then(user => ({ token: signToken(user._id, user.role) }))
     .then(respondWithResult(res))
     .catch(handleError(res));
 }

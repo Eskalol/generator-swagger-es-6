@@ -9,7 +9,7 @@
  */
 import {
   respondWithResult,
-  handleError
+  handleError,
 } from './helpers';
 
 import local from '../../auth/local';

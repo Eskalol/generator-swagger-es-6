@@ -54,8 +54,8 @@
     "build": "babel src -d dist --copy-files",
     "watch": "babel -w src/index.js -d dist -s",
     "babel-version": "babel --version",
-    "lint": "eslint src/api/ src/config/ src/models/ src/app.js src/index.js",
-    "lint:fix": "eslint --fix src/api/ src/config/ src/models/ src/app.js src/index.js",
+    "lint": "eslint src/api/ src/config/ src/models/ src/app.js src/index.js <% if (auth) {%>src/auth<%}%>",
+    "lint:fix": "eslint --fix src/api/ src/config/ src/models/ src/app.js src/index.js <% if (auth) {%>src/auth<%}%>",
     "test": "mocha src/test/**/*.js --compilers js:babel-core/register -R spec --timeout 5000"
   }<%
    if (git != '') {%>,

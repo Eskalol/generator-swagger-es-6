@@ -82,9 +82,7 @@ UserSchema
       });
   }, 'The specified email address is already in use.');
 
-const validatePresenceOf = (value) => {
-  return value && value.length;
-};
+const validatePresenceOf = value => value && value.length;
 
 /**
  * Pre-save hook
@@ -249,14 +247,12 @@ const registerEvents = (User) => {
     const event = events[e];
     User.post(e, emitEvent(event));
   }
-}
+};
 
-const emitEvent = (event) => {
-  return doc => {
-    UserEvents.emit(`${event}:${doc._id}`, doc);
-    UserEvents.emit(event, doc);
-  };
-}
+const emitEvent = event => (doc) => {
+  UserEvents.emit(`${event}:${doc._id}`, doc);
+  UserEvents.emit(event, doc);
+};
 
 
 registerEvents(UserSchema);
