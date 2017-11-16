@@ -82,7 +82,6 @@ module.exports = class extends Generator {
         '**/src/api/controllers/User.js'
       ]);
     }
-    console.log(this.props.auth);
     const copyOptions =
       excludeFiles.length === 0 ? null :
       {
@@ -90,8 +89,6 @@ module.exports = class extends Generator {
           ignore: excludeFiles
         }
       };
-    console.log(copyOptions);
-
     this.fs.copy(
       this.templatePath('gitignore'),
       this.destinationPath('.gitignore')
@@ -187,12 +184,5 @@ module.exports = class extends Generator {
       bower: false,
       yarn: false
     });
-
-    // if (this.props.eslint) {
-    //   this.npmInstall(['eslint',
-    //     'eslint-config-airbnb-base',
-    //     'eslint-plugin-import'],
-    //     {'save-dev': true});
-    // }
   }
 };
