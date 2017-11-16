@@ -1,0 +1,5 @@
+exclude_paths:
+  - "__test__/"
+  - "generators/app/templates/"
+  - "generators/controller/templates/"
+  - "generators/model/templates/"
