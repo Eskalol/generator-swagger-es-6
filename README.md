@@ -20,6 +20,22 @@ Then generate your new project:
 yo swagger-es-6
 ```
 
+## Supported Configurations
+**Server**
+
+* Database:
+  * `MongoDB`
+* Authentication boilerplate
+  * local strategy `Yes`, `No`
+* Swagger API
+  * Swagger editor
+
+**Testing**
+
+* `Mocha + Chai`
+  * Chai assertions:
+    * `Should`
+
 ## Generators
 ```bash
 yo swagger-es-6:model
