@@ -21,14 +21,12 @@ export function jwt(req, res, next) {
     return null;
   }
   isAuthenticated(req, res)
-    .then(user => {
-      return user.hasAccess(req.swagger.operation['x-security-scope']);
-    })
-    .then(user => {
+    .then(user => user.hasAccess(req.swagger.operation['x-security-scope']))
+    .then((user) => {
       next();
       return null;
     })
-    .catch(err => {
+    .catch((err) => {
       if (err instanceof mongoose.Error.CastError) {
         res.status(500).end();
       } else {

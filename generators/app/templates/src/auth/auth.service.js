@@ -15,20 +15,20 @@ const verify = promisify(jwt.verify);
  * @return [description]
  */
 export function isAuthenticated(req, res) {
- return verify(req.headers.authorization, config.secrets.session)
-  .then(decode => {
+  return verify(req.headers.authorization, config.secrets.session)
+    .then(decode =>
     // find user model
-    return User.findById(decode._id).exec();
-  })
-  .then(user => {
-    if (!user) {
+      User.findById(decode._id).exec(),
+    )
+    .then((user) => {
+      if (!user) {
       // reject promise with custom message
-      return Promise.reject({ error: 401, message: 'User not found' });
-    }
-    // attach user to request object.
-    req.user = user;
-    return user;
-  })
+        return Promise.reject({ error: 401, message: 'User not found' });
+      }
+      // attach user to request object.
+      req.user = user;
+      return user;
+    });
 }
 
 /**
@@ -41,6 +41,6 @@ export function isAuthenticated(req, res) {
  */
 export function signToken(id, role) {
   return jwt.sign({ _id: id, role }, config.secrets.session, {
-    expiresIn: 60 * 60 * 5
+    expiresIn: 60 * 60 * 5,
   });
 }

@@ -31,13 +31,11 @@ const all = {
       },
     },
   },
-
   <% if (auth) {%>
   // Set secret in environment for production!
   secrets: {
-    session: process.env.SECRET_SESSION || 'random-secret'
-  }
-  <%}%>
+    session: process.env.SECRET_SESSION || 'random-secret',
+  },<%}%>
 };
 
 export default _.merge(

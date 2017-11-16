@@ -77,7 +77,7 @@ module.exports = class extends Generator {
         '**/src/test/controllers/auth.js',
         '**/src/test/controllers/User.js',
         '**/src/test/models/User.js',
-        '**/src/modesl/User.js',
+        '**/src/models/User.js',
         '**/src/api/controllers/auth.js',
         '**/src/api/controllers/User.js'
       ]);

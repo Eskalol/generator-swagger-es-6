@@ -43,14 +43,14 @@ export function createPerson(req, res) {
 export function upsertPerson(req, res) {
   return Person.findOneAndUpdate({
     _id: req.swagger.params.id.value,
-    },
-    req.body,
-    {
-      new: true,
-      upsert: true,
-      setDefaultsOnInsert: true,
-      runValidators: true,
-    }).exec()
+  },
+  req.body,
+  {
+    new: true,
+    upsert: true,
+    setDefaultsOnInsert: true,
+    runValidators: true,
+  }).exec()
     .then(respondWithResult(res, 200))
     .catch(handleError(res));
 }

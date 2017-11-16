@@ -66,7 +66,7 @@ export function upsertUserMe(req, res) {
     message += 'Password has been updated.';
   }
   return req.user.save()
-    .then((user) => {
+    .then(() => {
       res.status(200).json({
         message,
       });
