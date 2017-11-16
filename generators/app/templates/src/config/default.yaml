@@ -20,7 +20,23 @@ swagger:
     _swagger_validate:
       name: swagger_validator
       validateResponse: true
+<% if (auth) {%>
+    _swagger_security:
+      name: swagger_security
+      securityHandlersModule: ./auth
 
+    # pipe for all swagger-node controllers
+    swagger_controllers:
+      - onError: json_error_handler
+      - cors
+      - swagger_params_parser
+      - swagger_security
+      - _swagger_validate
+      - _swagger_security
+      - express_compatibility
+      - _router
+<%}%>
+<% if (!auth) {%>
     # pipe for all swagger-node controllers
     swagger_controllers:
       - onError: json_error_handler
@@ -30,7 +46,7 @@ swagger:
       - _swagger_validate
       - express_compatibility
       - _router
-
+<%}%>
     # pipe to serve swagger (endpoint is in swagger.yaml)
     swagger_raw:
       name: swagger_raw

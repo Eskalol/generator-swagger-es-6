@@ -30,7 +30,13 @@ module.exports = class extends Generator {
       name: 'git',
       message: 'Your git repository.',
       default: ''
-    }, {
+    },
+    {
+      type: 'confirm',
+      name: 'auth',
+      message: 'Would you an authentication boilerplate?',
+    },
+    {
       type: 'confirm',
       name: 'eslint',
       message: 'Would you like to enable eslint with airbnb config?'
@@ -64,6 +70,28 @@ module.exports = class extends Generator {
   }
 
   writing() {
+    let exclude_folders = [];
+    if (!this.props.auth) {
+      exclude_folders.push(...[
+        '**/src/auth/**/*',
+        '**/src/test/controllers/auth.js',
+        '**/src/test/controllers/User.js',
+        '**/src/test/models/User.js',
+        '**/src/modesl/User.js',
+        '**/src/api/controllers/auth.js',
+        '**/src/api/controllers/User.js'
+      ]);
+    }
+    console.log(this.props.auth);
+    const copy_options =
+      exclude_folders.length == 0 ? null
+      : {
+        globOptions: {
+          ignore: exclude_folders
+        }
+      };
+    console.log(copy_options);
+
     this.fs.copy(
       this.templatePath('gitignore'),
       this.destinationPath('.gitignore')
@@ -78,10 +106,11 @@ module.exports = class extends Generator {
         this.destinationPath('.eslintrc.js')
       );
     }
-
-    this.fs.copy(
+    this.fs.copyTpl(
       this.templatePath('src/'),
-      this.destinationPath('src/')
+      this.destinationPath('src/'), {
+        auth: this.props.auth
+      }, null, copy_options
     );
     this.fs.copyTpl(
       this.templatePath('_package.json'),
@@ -89,7 +118,9 @@ module.exports = class extends Generator {
         name: this.props.name,
         author: this.props.author,
         description: this.props.description,
-        git: this.props.git
+        git: this.props.git,
+        auth: this.props.auth,
+        eslint: this.props.eslint
       }
     );
     if (this.props.docker) {
@@ -157,11 +188,11 @@ module.exports = class extends Generator {
       yarn: false
     });
 
-    if (this.props.eslint) {
-      this.npmInstall(['eslint',
-        'eslint-config-airbnb-base',
-        'eslint-plugin-import'],
-        {'save-dev': true});
-    }
+    // if (this.props.eslint) {
+    //   this.npmInstall(['eslint',
+    //     'eslint-config-airbnb-base',
+    //     'eslint-plugin-import'],
+    //     {'save-dev': true});
+    // }
   }
 };

@@ -18,6 +18,14 @@ consumes:
 produces:
   - application/json
 
+<% if (auth) {%>
+securityDefinitions:
+  jwt:
+    type: apiKey
+    name: "Authorization"
+    in: header
+<%}%>
+
 paths:
   /person/{id}:
     x-swagger-router-controller: person
@@ -144,6 +152,194 @@ paths:
           schema:
             $ref: "#/definitions/ErrorResponse"
 
+<% if (auth) {%>
+  /user/me:
+    x-swagger-router-controller: user
+    put:
+      description: change username or password
+      operationId: upsertUserMe
+      security:
+        - jwt: []
+      x-security-scope:
+        - user
+        - admin
+      parameters:
+        - in: body
+          name: body
+          description: email and password
+          schema:
+            $ref: "#/definitions/UserEmailPassword"
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/SuccessResponse"
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+        default:
+          description: error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+    get:
+      description: Get information about request user
+      operationId: showUserMe
+      security:
+        - jwt: []
+      x-security-scope:
+        - user
+        - admin
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/UserResponse"
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+        default:
+          description: error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /user/{id}:
+    x-swagger-router-controller: user
+    get:
+      description: Returns a specific user
+      operationId: showUser
+      security:
+        - jwt: []
+      x-security-scope:
+        - user
+        - admin
+      parameters:
+        - name: id
+          in: path
+          description: id of user
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/UserResponse"
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+        default:
+          description: error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+    delete:
+      description: deletes a user
+      operationId: destroyUser
+      security:
+        - jwt: []
+      x-security-scope:
+        - admin
+      parameters:
+        - name: id
+          in: path
+          description: id of the user to delete
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/SuccessResponse"
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+        "403":
+          description: Forbidden
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+        default:
+          description: error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /user:
+    x-swagger-router-controller: user
+    get:
+      description: Returns a list of all users
+      operationId: indexUser
+      security:
+        - jwt: []
+      x-security-scope:
+        - admin
+        - user
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/UserListResponse"
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+        default:
+          description: error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+    post:
+      description: Creates a User
+      operationId: createUser
+      parameters:
+        - in: body
+          name: body
+          description: user informaton create user
+          schema:
+            $ref: "#/definitions/User"
+      responses:
+        "201":
+          description: Success
+          schema:
+            $ref: "#/definitions/AuthTokenResponse"
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+        default:
+          description: error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
+  /auth/login:
+    x-swagger-router-controller: auth
+    post:
+      description: login api for obtaining jwt
+      operationId: login
+      parameters:
+        - in: body
+          name: body
+          description: user name and password
+          required: true
+          schema:
+            $ref: "#/definitions/AuthLogin"
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/AuthTokenResponse"
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+        default:
+          description: error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  <%}%>
+
   /swagger:
     x-swagger-pipe: swagger_raw
 # complex objects have schema definitions
@@ -174,7 +370,34 @@ definitions:
         type: string
       age:
         type: integer
+<% if (auth) {%>
+  UserListResponse:
+    type: array
+    items:
+      type: object
+      properties:
+        _id:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+        role:
+          type: string
 
+  UserResponse:
+    required:
+      - _id
+    properties:
+      _id:
+        type: string
+      name:
+        type: string
+      email:
+        type: string
+      role:
+        type: string
+<%}%>
   PatchRequest:
     type: array
     items:
@@ -222,12 +445,58 @@ definitions:
       age:
         type: integer
 
+<% if (auth) {%>
+  User:
+    title: A user
+    type: object
+    required:
+      - email
+      - password
+      - name
+    properties:
+      name:
+        type: string
+      email:
+        type: string
+      password:
+        type: string
+
+  UserEmailPassword:
+    title: email and password
+    type: object
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+
+  AuthLogin:
+    title: login
+    type: object
+    required:
+      - email
+      - password
+    properties:
+      email:
+        type: string
+      password:
+         type: string
+
+  AuthTokenResponse:
+    description: jwt token
+    required:
+      - token
+    properties:
+      token:
+        type: string
+<%}%>
   ErrorResponse:
     required:
       - message
     properties:
       message:
         type: string
+
   SuccessResponse:
     required:
       - message

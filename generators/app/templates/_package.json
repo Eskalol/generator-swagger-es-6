@@ -12,7 +12,13 @@
     "lodash": "^4.17.4",
     "mongoose": "^4.10.1",
     "fast-json-patch": "^2.0.5",
-    "swagger-express-mw": "^0.7.0"
+    "swagger-express-mw": "^0.7.0"<% if (auth) {%>,
+    "bluebird": "^3.5.0",
+    "crypto": "^1.0.1",
+    "jsonwebtoken": "^8.1.0",
+    "passport": "^0.4.0",
+    "passport-jwt": "^3.0.0",
+    "passport-local": "^1.0.0"<%}%>
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -22,10 +28,14 @@
     "babel-preset-stage-0": "^6.24.1",
     "babel-watch": "^2.0.6",
     "should": "^7.1.0",
-    "supertest": "^1.0.0",
+    "supertest": "^3.0.0",
     "mocha": "^3.4.2",
     "chai": "^3.2.0",
-    "chai-as-promised": "^6.0.0"
+    "chai-as-promised": "^6.0.0"<% if (eslint) {%>,
+    "eslint": "^4.6.1",
+    "eslint-config-airbnb-base": "^11.3.2",
+    "eslint-plugin-import": "^2.7.0"
+    <%}%>
   },
   "babel": {
     "presets": [
