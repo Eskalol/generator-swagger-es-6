@@ -8,7 +8,7 @@
  * PUT     /user/me           ->  upsertUserMe
  */
 
-import User from '../../models/User';
+import User from '../../models/user';
 import { signToken } from '../../auth/auth.service';
 import {
   respondWithResult,
