@@ -14,7 +14,8 @@ test.before(() => {
       eslint: true,
       CI: ['Travis-CI', 'Appveyor'],
       docker: true,
-      heroku: true
+      heroku: true,
+      auth: false
     });
 });
 
@@ -31,6 +32,18 @@ test('with eslint', () => {
     'docker-compose.yml',
     'Dockerfile',
     'Procfile'
+  ]);
+
+  assert.noFile([
+    'src/auth/local/index.js',
+    'src/auth/local/passport.js',
+    'src/auth/auth.service.js',
+    'src/auth/index.js',
+    'src/test/controllers/auth.js',
+    'src/test/controllers/User.js',
+    'src/test/models/User.js',
+    'src/api/controllers/auth.js',
+    'src/api/controllers/User.js'
   ]);
 });
 
