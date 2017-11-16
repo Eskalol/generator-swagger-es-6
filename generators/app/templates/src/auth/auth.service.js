@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import config from '../config/environment';
-import User from '../models/User';
+import User from '../models/user';
 import { promisify } from 'bluebird';
 
 const verify = promisify(jwt.verify);

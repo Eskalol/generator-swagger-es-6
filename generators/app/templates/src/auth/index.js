@@ -1,5 +1,5 @@
 import config from '../config/environment';
-import User from '../models/User';
+import User from '../models/user';
 import { isAuthenticated } from './auth.service';
 import mongoose from 'mongoose';
 

@@ -1,7 +1,7 @@
 import should from 'should';
 import request from 'supertest';
 import server from '../../index';
-import User from '../../models/User';
+import User from '../../models/user';
 import { promisify } from 'bluebird';
 import jwt from 'jsonwebtoken';
 import config from '../../config/environment';
