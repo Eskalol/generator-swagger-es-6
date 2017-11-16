@@ -37,9 +37,9 @@ test('with auth', () => {
     'src/auth/auth.service.js',
     'src/auth/index.js',
     'src/test/controllers/auth.js',
-    'src/test/controllers/User.js',
-    'src/test/models/User.js',
+    'src/test/controllers/user.js',
+    'src/test/models/user.js',
     'src/api/controllers/auth.js',
-    'src/api/controllers/User.js'
+    'src/api/controllers/user.js'
   ]);
 });
