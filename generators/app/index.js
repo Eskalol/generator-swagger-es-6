@@ -34,7 +34,7 @@ module.exports = class extends Generator {
     {
       type: 'confirm',
       name: 'auth',
-      message: 'Would you an authentication boilerplate?',
+      message: 'Would you an authentication boilerplate?'
     },
     {
       type: 'confirm',
@@ -70,9 +70,9 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    let exclude_folders = [];
+    let excludeFiles = [];
     if (!this.props.auth) {
-      exclude_folders.push(...[
+      excludeFiles.push(...[
         '**/src/auth/**/*',
         '**/src/test/controllers/auth.js',
         '**/src/test/controllers/User.js',
@@ -83,14 +83,14 @@ module.exports = class extends Generator {
       ]);
     }
     console.log(this.props.auth);
-    const copy_options =
-      exclude_folders.length == 0 ? null
-      : {
+    const copyOptions =
+      excludeFiles.length === 0 ? null :
+      {
         globOptions: {
-          ignore: exclude_folders
+          ignore: excludeFiles
         }
       };
-    console.log(copy_options);
+    console.log(copyOptions);
 
     this.fs.copy(
       this.templatePath('gitignore'),
@@ -110,7 +110,7 @@ module.exports = class extends Generator {
       this.templatePath('src/'),
       this.destinationPath('src/'), {
         auth: this.props.auth
-      }, null, copy_options
+      }, null, copyOptions
     );
     this.fs.copyTpl(
       this.templatePath('_package.json'),
