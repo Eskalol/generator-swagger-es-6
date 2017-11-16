@@ -4,6 +4,9 @@
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![AppVeyor][appveyor-image]][appveyor-url] [![codecov][codecov-image]][codecov-url] [![Code Climate][code-climate-image]][code-climate-url] [![Dependency Status][daviddm-image]][daviddm-url] [![GitHub license][license-image]][license-url] [![Downloads][npm-downloads-image]][npm-url]
 > Yeoman generator for generating a swagger project, using ES6, MongoDB, Express, and Node - lets you quickly set up a project avoiding fatigue.
 
+#### Generated project:
+[![dependencies Status][test-daviddm-image]][test-daviddm-url][![devDependencies Status][test-daviddm-dev-image]][test-daviddm-dev-url] [![Build Status][travis-image]][test-travis-url] [![AppVeyor][appveyor-image]][test-appveyor-url]
+
 ## Installation
 
 First, install [Yeoman](http://yeoman.io) and generator-swagger-es-6 using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
@@ -69,3 +72,12 @@ MIT © [Eskil Opdahl Nordland]()
 [code-climate-image]: https://img.shields.io/codeclimate/github/Eskalol/generator-swagger-es-6.svg?style=flat-square
 [appveyor-image]: https://img.shields.io/appveyor/ci/Eskalol/generator-swagger-es-6.svg?style=flat-square
 [appveyor-url]: https://ci.appveyor.com/project/Eskalol/generator-swagger-es-6
+
+[test-daviddm-image]: http://img.shields.io/david/Eskalol/generator-swagger-test.svg?style=flat-square
+[test-daviddm-url]: https://david-dm.org/Eskalol/generator-swagger-test
+[test-daviddm-dev-url]: https://david-dm.org/Eskalol/generator-swagger-test?type=dev
+[test-daviddm-dev-image]: https://img.shields.io/david/dev/Eskalol/generator-swagger-test.svg?style=flat-square
+[test-appveyor-image]: https://img.shields.io/appveyor/ci/Eskalol/generator-swagger-test.svg?style=flat-square
+[test-appveyor-url]: https://ci.appveyor.com/project/Eskalol/generator-swagger-test
+[test-travis-image]: https://img.shields.io/travis/Eskalol/generator-swagger-test.svg?style=flat-square
+[test-travis-url]: https://travis-ci.org/Eskalol/generator-swagger-test
