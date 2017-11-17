@@ -68,7 +68,7 @@ MIT © [Eskil Opdahl Nordland]()
 [license-url]: https://raw.githubusercontent.com/Eskalol/generator-swagger-es-6/master/LICENSE
 [license-image]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
 [npm-downloads-image]: https://img.shields.io/npm/dt/generator-swagger-es-6.svg?style=flat-square
-[appveyor-image]: https://img.shields.io/appveyor/ci/Eskalol/generator-swagger-es-6.svg?style=flat-square
+[appveyor-image]: https://img.shields.io/appveyor/ci/Eskalol/generator-swagger-es-6.svg?style=flat-square&logo=appveyor
 [appveyor-url]: https://ci.appveyor.com/project/Eskalol/generator-swagger-es-6
 
 [test-daviddm-image]: http://img.shields.io/david/Eskalol/generator-swagger-test.svg?style=flat-square
@@ -77,5 +77,5 @@ MIT © [Eskil Opdahl Nordland]()
 [test-daviddm-dev-image]: https://img.shields.io/david/dev/Eskalol/generator-swagger-test.svg?style=flat-square
 [test-appveyor-image]: https://img.shields.io/appveyor/ci/Eskalol/generator-swagger-test.svg?style=flat-square
 [test-appveyor-url]: https://ci.appveyor.com/project/Eskalol/generator-swagger-test
-[test-travis-image]: https://img.shields.io/travis/Eskalol/generator-swagger-test.svg?style=flat-square
+[test-travis-image]: https://img.shields.io/travis/Eskalol/generator-swagger-test.svg?style=flat-square&logo=appveyor
 [test-travis-url]: https://travis-ci.org/Eskalol/generator-swagger-test

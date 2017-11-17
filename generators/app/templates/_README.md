@@ -1,5 +1,5 @@
 # <%= name %>
-[![dependencies Status][daviddm-image]][daviddm-url][![devDependencies Status][daviddm-dev-image]][daviddm-dev-url] <% if (travis) {%>[![Build Status][travis-image]][travis-url]<%}%> <% if (appveyor) {%>[![AppVeyor][appveyor-image]][appveyor-url]<%}%>
+[![dependencies Status][daviddm-image]][daviddm-url] [![devDependencies Status][daviddm-dev-image]][daviddm-dev-url] <% if (travis) {%>[![Build Status][travis-image]][travis-url]<%}%> <% if (appveyor) {%>[![AppVeyor][appveyor-image]][appveyor-url]<%}%>
 
 
 ## Development setup
