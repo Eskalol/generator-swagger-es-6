@@ -5,7 +5,7 @@
 > Yeoman generator for generating a swagger project, using ES6, MongoDB, Express, and Node - lets you quickly set up a project avoiding fatigue.
 
 #### Generated project:
-[![Maintainability](https://api.codeclimate.com/v1/badges/929a48d0e693669fd8c5/maintainability)](https://codeclimate.com/github/Eskalol/generator-swagger-test/maintainability) [![dependencies Status][test-daviddm-image]][test-daviddm-url] [![devDependencies Status][test-daviddm-dev-image]][test-daviddm-dev-url] [![Build Status][test-travis-image]][test-travis-url] [![test-AppVeyor][test-appveyor-image]][test-appveyor-url]
+[![Maintainability](https://api.codeclimate.com/v1/badges/929a48d0e693669fd8c5/maintainability)](https://codeclimate.com/github/Eskalol/generator-swagger-test/maintainability) [![dependencies Status][test-daviddm-image]][test-daviddm-url] [![devDependencies Status][test-daviddm-dev-image]][test-daviddm-dev-url] [![Build Status][test-travis-image]][test-travis-url] [![test-AppVeyor][test-appveyor-image]][test-appveyor-url][![Known Vulnerabilities](https://snyk.io/test/github/eskalol/generator-swagger-test/badge.svg)](https://snyk.io/test/github/eskalol/generator-swagger-test)
 
 ## Installation
 
