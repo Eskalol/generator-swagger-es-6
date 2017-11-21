@@ -56,7 +56,7 @@
     "babel-version": "babel --version",
     "lint": "eslint src/api/ src/config/ src/models/ src/app.js src/index.js <% if (auth) {%>src/auth<%}%>",
     "lint:fix": "eslint --fix src/api/ src/config/ src/models/ src/app.js src/index.js <% if (auth) {%>src/auth<%}%>",
-    "test": "mocha src/test/**/*.js --compilers js:babel-core/register -R spec --timeout 5000"
+    "test": "NODE_ENV=test mocha src/test/**/*.js --compilers js:babel-core/register -R spec --timeout 5000"
   }<%
    if (git != '') {%>,
   "repository": {
