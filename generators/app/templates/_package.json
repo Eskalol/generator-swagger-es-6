@@ -50,7 +50,7 @@
     "start": "npm run build && node dist/index.js",
     "dev": "babel-watch src",
     "swagger": "export swagger_swagger_fileName='src/api/swagger/swagger.yaml' && swagger project edit",
-    "swagger-win": "set swagger_swagger_fileName='src/api/swagger/swagger.yaml' && swagger project edit",
+    "swagger-win": "set swagger_swagger_fileName=src/api/swagger/swagger.yaml&& swagger project edit",
     "build": "babel src -d dist --copy-files",
     "watch": "babel -w src/index.js -d dist -s",
     "babel-version": "babel --version",
