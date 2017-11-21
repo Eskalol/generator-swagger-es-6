@@ -117,7 +117,8 @@ module.exports = class extends Generator {
         description: this.props.description,
         git: this.props.git,
         auth: this.props.auth,
-        eslint: this.props.eslint
+        eslint: this.props.eslint,
+        travis: this.props.CI && this.props.CI.includes('Travis-CI')
       }
     );
     if (this.props.docker) {
