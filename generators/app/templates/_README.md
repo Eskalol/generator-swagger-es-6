@@ -1,5 +1,5 @@
 # <%= name %>
-[![dependencies Status][daviddm-image]][daviddm-url] [![devDependencies Status][daviddm-dev-image]][daviddm-dev-url] <% if (travis) {%>[![Build Status][travis-image]][travis-url]<%}%> <% if (appveyor) {%>[![AppVeyor][appveyor-image]][appveyor-url]<%}%>
+[![dependencies Status][daviddm-image]][daviddm-url] [![devDependencies Status][daviddm-dev-image]][daviddm-dev-url] <% if (travis) {%>[![codecov][codecov-image]][codecov-url] [![Build Status][travis-image]][travis-url]<%}%> <% if (appveyor) {%>[![AppVeyor][appveyor-image]][appveyor-url]<%}%>
 
 
 ## Development setup
@@ -29,4 +29,6 @@ $ docker-compose up
 <% if (travis) {%>
 [travis-image]: https://img.shields.io/travis/<%= repoName %>.svg?style=flat-square
 [travis-url]: https://travis-ci.org/<%= repoName %>
+[codecov-url]: https://codecov.io/gh/<%= repoName %>
+[codecov-image]: https://img.shields.io/codecov/c/github/<%= repoName %>.svg?style=flat-square
 <%}%>
