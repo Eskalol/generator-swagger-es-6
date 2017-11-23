@@ -121,6 +121,13 @@ module.exports = class extends Generator {
         travis: this.props.CI && this.props.CI.includes('Travis-CI')
       }
     );
+    this.fs.copyTpl(
+      this.templatePath('_gulpfile.babel.js'),
+      this.destinationPath('gulpfile.babel.js'), {
+        eslint: this.props.eslint
+      }
+    );
+
     if (this.props.docker) {
       this.fs.copyTpl(
         this.templatePath('_Dockerfile'),

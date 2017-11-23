@@ -27,6 +27,15 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "babel-watch": "^2.0.6",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
+    "gulp-env": "^0.4.0",
+    "gulp-util": "^3.0.8",
+    "cross-spawn": "^5.1.0",
+    "del": "^3.0.0",
+    "nodemon": "^1.12.1",
+    "run-sequence": "^2.2.0",
+    "swagger-editor-live": "^2.s1.8",
     "should": "^7.1.0",
     "supertest": "^3.0.0",
     "mocha": "^3.4.2",
@@ -36,7 +45,8 @@
     "chai-as-promised": "^6.0.0"<% if (eslint) {%>,
     "eslint": "^4.6.1",
     "eslint-config-airbnb-base": "^11.3.2",
-    "eslint-plugin-import": "^2.7.0"
+    "eslint-plugin-import": "^2.7.0",
+    "gulp-eslint": "^4.0.0"
     <%}%>
   },
   "babel": {
@@ -56,16 +66,9 @@
   },
   "scripts": {
     "start": "npm run build && node dist/index.js",
-    "dev": "babel-watch src",
-    "swagger": "export swagger_swagger_fileName='src/api/swagger/swagger.yaml' && swagger project edit",
-    "swagger-win": "set swagger_swagger_fileName=src/api/swagger/swagger.yaml&& swagger project edit",
-    "build": "babel src -d dist --copy-files",
-    "watch": "babel -w src/index.js -d dist -s",
-    "babel-version": "babel --version",
-    "lint": "eslint src/api/ src/config/ src/models/ src/app.js src/index.js <% if (auth) {%>src/auth<%}%>",
-    "lint:fix": "eslint --fix src/api/ src/config/ src/models/ src/app.js src/index.js <% if (auth) {%>src/auth<%}%>",
-    "test": "NODE_ENV=test ./node_modules/.bin/nyc ./node_modules/.bin/mocha src/test/**/*.js --compilers js:babel-core/register -R spec --timeout 5000"<% if (travis) {%>,
-    "coverage": "./node_modules/.bin/nyc report --reporter=text-lcov > coverage.lcov && codecov"<%}%>
+    "build": "gulp build",
+    "test": "gulp test",<% if (travis) {%>,
+    "coverage": "gulp coverage"<%}%>
   }<%
    if (git != '') {%>,
   "repository": {
