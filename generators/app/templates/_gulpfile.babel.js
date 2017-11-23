@@ -5,10 +5,12 @@ import nodemon from 'nodemon';
 import runSequence from 'run-sequence';
 <% if (eslint) {%>import eslint from 'gulp-eslint';<%}%>
 import babel from 'gulp-babel';
-import env from 'gulp-env';
+import mocha from 'gulp-mocha';
 import util from 'gulp-util';
+import env from 'gulp-env';
+import istanbul from 'gulp-istanbul';
+import { Instrumenter as isparta } from 'isparta';
 import spawn from 'cross-spawn';
-
 
 const paths = {
   src: 'src',
@@ -121,47 +123,38 @@ gulp.task('lint:fix', () => {
  * Testing
  */
 
-gulp.task('test', cb => {
-  runSequence(
-    'env:test',
-    'mocha',
-    cb);
+gulp.task('pre-test', () => {
+  return gulp.src(_.union([`${paths.scripts}`], [`!${paths.test}`]))
+    .pipe(istanbul({
+      instrumenter: isparta
+    }))
+    .pipe(istanbul.hookRequire());
 });
 
-gulp.task('mocha', () => {
-  return spawn('./node_modules/.bin/nyc',
-    ['./node_modules/.bin/mocha',
-    `${paths.test}`,
-    '--compilers',
-    'js:babel-register',
-    '-R',
-    'spec',
-    '--timeout',
-    '5000'],
-    {stdio: 'inherit'}
-  );
+gulp.task('test', ['env:test', 'pre-test'], () => {
+  return gulp.src(`${paths.test}`)
+    .pipe(mocha({
+      reporter: 'spec',
+      timeout: 5000,
+      require: [
+        './mocha.conf'
+      ]
+    }))
+    .pipe(istanbul.writeReports({
+      dir: './coverage',
+      reporters: [ 'lcov', 'text', 'text-summary'],
+      reportOpts: {
+        lcov: {dir: '.', file: 'lcov.info'}
+      }
+    }))
+    .on('end', () => process.exit());
 });
 
 /**
- * Test coverage and report
+ * Report coverage to codecov
  */
 
-gulp.task('coverage', cb => {
-  runSequence(
-    'coverage:report',
-    'coverage:codecov',
-    cb);
-});
-
-gulp.task('coverage:report', () => {
-  return spawn('./node_modules/.bin/nyc',
-    ['report',
-    '--reporter=text-lcov',
-    '>',
-    'coverage.lcov']);
-});
-
-gulp.task('coverage:codecov', () => {
+gulp.task('coverage', () => {
   return spawn('./node_modules/.bin/codecov');
 });
 

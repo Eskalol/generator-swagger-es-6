@@ -131,7 +131,10 @@ module.exports = class extends Generator {
         eslint: this.props.eslint
       }
     );
-
+    this.fs.copy(
+      this.templatePath('_mocha.conf.js'),
+      this.destinationPath('mocha.conf.js')
+    );
     if (this.props.docker) {
       this.fs.copyTpl(
         this.templatePath('_Dockerfile'),

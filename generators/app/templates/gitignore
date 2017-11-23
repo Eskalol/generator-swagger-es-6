@@ -1,5 +1,5 @@
 node_modules
 dist
-.nyc_output/
+lcov-report/
 coverage/
-coverage.lcov
+lcov.info

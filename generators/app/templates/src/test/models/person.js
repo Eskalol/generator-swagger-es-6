@@ -1,8 +1,5 @@
 import server from '../../index';
 import Person from '../../models/person';
-import chai, { expect } from 'chai';
-
-chai.use(require('chai-as-promised'));
 
 var person;
 const genPerson = () => {

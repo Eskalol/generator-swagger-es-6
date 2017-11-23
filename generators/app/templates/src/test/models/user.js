@@ -2,9 +2,6 @@
 
 import app from '../../app';
 import User from '../../models/user';
-import chai, { expect } from 'chai';
-
-chai.use(require('chai-as-promised'));
 
 var user;
 const genUser = () => {
