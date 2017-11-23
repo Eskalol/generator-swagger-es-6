@@ -103,6 +103,10 @@ module.exports = class extends Generator {
         this.destinationPath('.eslintrc.js')
       );
     }
+    this.copy(
+      this.templatePath('codeclimate.yml'),
+      this.destinationPath('.codeclimate.yml')
+    );
     this.fs.copyTpl(
       this.templatePath('src/'),
       this.destinationPath('src/'), {
