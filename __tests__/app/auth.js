@@ -34,6 +34,7 @@ test('with auth', () => {
     'Procfile',
     'gulpfile.babel.js',
     '.codeclimate.yml',
+    'mocha.conf.js',
     'src/auth/local/index.js',
     'src/auth/local/passport.js',
     'src/auth/auth.service.js',
