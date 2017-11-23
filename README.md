@@ -44,7 +44,7 @@ yo swagger-es-6
   * `travis-ci`
   * `appveyor`
 * Test coverage
-  * `nyc` coverage reporsts
+  * `istanbul` coverage reporsts
   * `codecov` with `travis-ci`
 
 **Production**

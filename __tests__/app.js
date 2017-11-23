@@ -27,6 +27,7 @@ test('with eslint', () => {
     'package.json',
     '.gitignore',
     '.travis.yml',
+    'mocha.conf.js',
     'appveyor.yml',
     'README.md',
     'docker-compose.yml',
