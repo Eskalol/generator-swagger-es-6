@@ -31,7 +31,8 @@ test('with eslint', () => {
     'README.md',
     'docker-compose.yml',
     'Dockerfile',
-    'Procfile'
+    'Procfile',
+    'gulpfile.babel.js'
   ]);
 
   assert.noFile([

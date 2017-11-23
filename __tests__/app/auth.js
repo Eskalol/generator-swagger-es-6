@@ -32,6 +32,7 @@ test('with auth', () => {
     'docker-compose.yml',
     'Dockerfile',
     'Procfile',
+    'gulpfile.babel.js',
     'src/auth/local/index.js',
     'src/auth/local/passport.js',
     'src/auth/auth.service.js',
