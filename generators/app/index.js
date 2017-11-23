@@ -160,7 +160,8 @@ module.exports = class extends Generator {
         repoName: this.parseGitReopName(this.props.git),
         docker: this.props.docker,
         travis: this.props.CI && this.props.CI.includes('Travis-CI'),
-        appveyor: this.props.CI && this.props.CI.includes('Appveyor')
+        appveyor: this.props.CI && this.props.CI.includes('Appveyor'),
+        eslint: this.props.eslint
       }
     );
     if (this.props.CI && this.props.CI.includes('Travis-CI')) {
