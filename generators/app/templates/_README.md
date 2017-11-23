@@ -4,12 +4,22 @@
 
 ## Development setup
 ```bash
-$ npm install -g swagger
+$ npm install -g gulp
 $ git clone <%= git %>
 $ mongod
-$ npm run dev
-$ npm run swagger
+$ gulp
 ```
+
+## Gulp Tasks:
+- Run `gulp` to serve:dev and run swagger editor.
+- Run `gulp test` to run unit tests with mocha.
+- Run `gulp build` to build dist.
+- Run `gulp serve:dist` to serve production.
+- Run `gulp serve` to serve development.
+- Run `gulp clean:dist` to clean dist folder.
+- Run `gulp swagger` to run swagger editor.
+<% if (eslint) {%>- Run `gulp lint` to run linting.
+- Run `gulp lint:fix` to fix fixable errors.<%}%>
 
 <% if (docker) {%>
 ## Whale it, you'll nail it!
@@ -23,7 +33,7 @@ $ docker-compose up
 [daviddm-dev-url]: https://david-dm.org/<%= repoName %>?type=dev
 [daviddm-dev-image]: https://img.shields.io/david/dev/<%= repoName %>.svg?style=flat-square
 <% if (appveyor) {%>
-[appveyor-image]: https://img.shields.io/appveyor/ci/<%= repoName %>.svg?style=flat-square
+[appveyor-image]: https://img.shields.io/appveyor/ci/<%= repoName %>.svg?style=flat-square&logo=appveyor
 [appveyor-url]: https://ci.appveyor.com/project/<%= repoName %>
 <%}%>
 <% if (travis) {%>

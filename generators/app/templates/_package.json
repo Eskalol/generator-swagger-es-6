@@ -35,7 +35,7 @@
     "del": "^3.0.0",
     "nodemon": "^1.12.1",
     "run-sequence": "^2.2.0",
-    "swagger-editor-live": "^2.s1.8",
+    "swagger-editor-live": "^2.1.8",
     "should": "^7.1.0",
     "supertest": "^3.0.0",
     "mocha": "^3.4.2",
@@ -67,7 +67,7 @@
   "scripts": {
     "start": "npm run build && node dist/index.js",
     "build": "gulp build",
-    "test": "gulp test",<% if (travis) {%>,
+    "test": "gulp test"<% if (travis) {%>,
     "coverage": "gulp coverage"<%}%>
   }<%
    if (git != '') {%>,

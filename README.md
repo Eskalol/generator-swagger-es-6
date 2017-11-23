@@ -24,6 +24,8 @@ yo swagger-es-6
 ```
 
 ## Supported Configurations
+* Build Systems: `Gulp`
+
 **Server**
 
 * Database:
@@ -31,13 +33,23 @@ yo swagger-es-6
 * Authentication boilerplate
   * local strategy `Yes`, `No`
 * Swagger API
-  * Swagger editor
+  * Swagger editor 3.0
 
 **Testing**
 
 * `Mocha + Chai`
   * Chai assertions:
     * `Should`
+* `eslint`
+* CI configurations
+  * `travis-ci`
+  * `appveyor`
+* Test coverage
+  * `codecov` with `travis-ci`
+
+**Production**
+* `Docker` with `docker compose`
+* `Heroku` procfile
 
 ## Generators
 ```bash
@@ -75,9 +87,9 @@ MIT © [Eskil Opdahl Nordland]()
 [test-daviddm-url]: https://david-dm.org/Eskalol/generator-swagger-test
 [test-daviddm-dev-url]: https://david-dm.org/Eskalol/generator-swagger-test?type=dev
 [test-daviddm-dev-image]: https://img.shields.io/david/dev/Eskalol/generator-swagger-test.svg?style=flat-square
-[test-appveyor-image]: https://img.shields.io/appveyor/ci/Eskalol/generator-swagger-test.svg?style=flat-square
+[test-appveyor-image]: https://img.shields.io/appveyor/ci/Eskalol/generator-swagger-test.svg?style=flat-square&logo=appveyor
 [test-appveyor-url]: https://ci.appveyor.com/project/Eskalol/generator-swagger-test
-[test-travis-image]: https://img.shields.io/travis/Eskalol/generator-swagger-test.svg?style=flat-square&logo=appveyor
+[test-travis-image]: https://img.shields.io/travis/Eskalol/generator-swagger-test.svg?style=flat-square
 [test-travis-url]: https://travis-ci.org/Eskalol/generator-swagger-test
 [test-codecov-url]: https://codecov.io/gh/Eskalol/generator-swagger-test
 [test-codecov-image]: https://img.shields.io/codecov/c/github/Eskalol/generator-swagger-test.svg?style=flat-square
