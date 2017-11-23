@@ -32,7 +32,8 @@ test('with eslint', () => {
     'docker-compose.yml',
     'Dockerfile',
     'Procfile',
-    'gulpfile.babel.js'
+    'gulpfile.babel.js',
+    '.codeclimate.yml'
   ]);
 
   assert.noFile([

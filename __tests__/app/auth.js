@@ -33,6 +33,7 @@ test('with auth', () => {
     'Dockerfile',
     'Procfile',
     'gulpfile.babel.js',
+    '.codeclimate.yml',
     'src/auth/local/index.js',
     'src/auth/local/passport.js',
     'src/auth/auth.service.js',
