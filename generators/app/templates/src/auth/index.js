@@ -1,7 +1,9 @@
+/* eslint-disable import/prefer-default-export */
+
+import mongoose from 'mongoose';
 import config from '../config/environment';
 import User from '../models/user';
 import { isAuthenticated } from './auth.service';
-import mongoose from 'mongoose';
 
 require('./local/passport').setup(User, config);
 
@@ -22,7 +24,7 @@ export function jwt(req, res, next) {
   }
   isAuthenticated(req, res)
     .then(user => user.hasAccess(req.swagger.operation['x-security-scope']))
-    .then((user) => {
+    .then(() => {
       next();
       return null;
     })
@@ -34,4 +36,5 @@ export function jwt(req, res, next) {
       }
       return null;
     });
+  return null;
 }

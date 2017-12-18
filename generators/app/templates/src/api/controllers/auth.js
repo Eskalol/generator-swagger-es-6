@@ -1,3 +1,5 @@
+/* eslint-disable import/prefer-default-export */
+
 /**
  * POST     /auth/login         ->  login
  */

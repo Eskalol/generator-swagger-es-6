@@ -1,3 +1,5 @@
+/* eslint-disable import/prefer-default-export, consistent-return */
+
 import passport from 'passport';
 import { Strategy as LocalStrategy } from 'passport-local';
 

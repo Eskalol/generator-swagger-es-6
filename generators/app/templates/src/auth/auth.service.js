@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
+import { promisify } from 'bluebird';
 import config from '../config/environment';
 import User from '../models/user';
-import { promisify } from 'bluebird';
 
 const verify = promisify(jwt.verify);
 
@@ -9,12 +9,10 @@ const verify = promisify(jwt.verify);
  * @brief checks if user is authenticated.
  * @details [long description]
  *
- * @param q [description]
- * @param s [description]
- * @param t [description]
+ * @param req request
  * @return [description]
  */
-export function isAuthenticated(req, res) {
+export function isAuthenticated(req) {
   return verify(req.headers.authorization, config.secrets.session)
     .then(decode =>
     // find user model

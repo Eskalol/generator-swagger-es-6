@@ -1,4 +1,4 @@
-/* eslint no-invalid-this:0 */
+/* eslint-disable */
 import crypto from 'crypto';
 import mongoose, { Schema } from 'mongoose';
 import { EventEmitter } from 'events';

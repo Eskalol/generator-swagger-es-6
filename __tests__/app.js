@@ -58,11 +58,11 @@ describe('swagger-es-6:app', () => {
     });
 
     it('should pass all tests', async () => {
-      await expect(inception.runAsyncCommand('npm test', false)).resolves.toBe(0);
+      await expect(inception.runAsyncCommand('npm test')).resolves.toBe(0);
     }, 20000);
 
     it('should pass linting', async () => {
-      await expect(inception.runAsyncCommand('./node_modules/.bin/gulp lint:fix', false)).resolves.toBe(0);
+      await expect(inception.runAsyncCommand('./node_modules/.bin/gulp lint:fix')).resolves.toBe(0);
     }, 20000);
   });
 

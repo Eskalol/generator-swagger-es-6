@@ -15,16 +15,12 @@ gulp.task('prepublish', gulp.series('nsp'));
 
 let inception;
 
-// const inceptionInit = async () => {
-//     inception = new Inception(path.join(__dirname, 'tempDir'));
-//     return await inception.npmInstall(false);
-// };
-
 /**
  * installing node_modules for generated code into tempFolder.
  * Used for symlinking into in memory code for testing.
  */
 gulp.task('pre-test', done => {
+  new Inception(path.join(__dirname, 'tempDir')).clean();
   inception = new Inception(path.join(__dirname, 'tempDir'));
   inception.copyPackageJson(path.join(__dirname, 'generators/app/templates/_package.json'), {
     name: 'test',
