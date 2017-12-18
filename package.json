@@ -30,7 +30,7 @@
     "nyc": "^11.0.1",
     "yeoman-assert": "^3.1.0",
     "yeoman-test": "^1.7.0",
-    "yo-inception": "^0.1.0"
+    "yo-inception": "^0.2.0"
   },
   "dependencies": {
     "chalk": "^2.0.1",

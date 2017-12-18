@@ -5439,9 +5439,9 @@ yeoman-test@^1.7.0:
     yeoman-environment "^2.0.0"
     yeoman-generator "^1.1.0"
 
-yo-inception@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/yo-inception/-/yo-inception-0.1.0.tgz#84528af30ba8fc9727aea2cfbd90a50edd28a3b1"
+yo-inception@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/yo-inception/-/yo-inception-0.2.0.tgz#194c3446b4e28733b9f98bdeeb14a4e09369e263"
   dependencies:
     fs-extra "^5.0.0"
     mem-fs "^1.1.3"
