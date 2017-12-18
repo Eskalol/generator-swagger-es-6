@@ -5322,7 +5322,7 @@ yargs@~3.10.0:
     decamelize "^1.0.0"
     window-size "0.1.0"
 
-yeoman-assert@^3.0.0, yeoman-assert@^3.1.0:
+yeoman-assert@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/yeoman-assert/-/yeoman-assert-3.1.0.tgz#ad89ab4616d697f98b1a3eb8a1b63e8e315a89e8"
 
@@ -5426,7 +5426,7 @@ yeoman-generator@^2.0.1:
     through2 "^2.0.0"
     yeoman-environment "^2.0.3"
 
-yeoman-test@^1.6.0, yeoman-test@^1.7.0:
+yeoman-test@^1.7.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/yeoman-test/-/yeoman-test-1.7.0.tgz#3edbee64591f2597027a5b42b1dc058251adc9fe"
   dependencies:

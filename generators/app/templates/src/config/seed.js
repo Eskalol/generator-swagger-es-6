@@ -46,7 +46,7 @@ const generatePersons = () => {
         description: 'Warchief (of the Horde), The Dark Lady, The Banshee Queen, Mistress Sylvanas',
       });
     });
-}
+};
 
 export default function seedDB() {
   if (config.seedDB) {

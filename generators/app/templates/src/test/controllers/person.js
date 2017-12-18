@@ -68,7 +68,7 @@ describe('controllers', () => {
             res.body.age.should.eql(20);
             done();
           });
-      })
+      });
     });
 
     describe('GET /person/:id', () => {
