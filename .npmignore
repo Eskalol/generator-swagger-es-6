@@ -5,6 +5,8 @@ __tests__
 .editorconfig
 .eslintignore
 .gitattributes
-.nyc_output
+coverage
 gulpfile.js
 appveyor.yml
+.idea
+.codeclimate.yml
