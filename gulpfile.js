@@ -3,16 +3,30 @@
 const path = require('path');
 const gulp = require('gulp');
 const eslint = require('gulp-eslint');
-const spawn = require('cross-spawn');
 const excludeGitignore = require('gulp-exclude-gitignore');
 const nsp = require('gulp-nsp');
+const jest = require('gulp-jest').default;
 
 gulp.task('nsp', nodeSecurityProtocol);
-gulp.task('watch', watch);
 gulp.task('static', eslintCheck);
-gulp.task('test', gulp.series([avaTest, nycReport]));
 
 gulp.task('prepublish', gulp.series('nsp'));
+
+gulp.task('test', function () {
+  return gulp.src('./').pipe(jest({
+    automock: false,
+    coverageDirectory: './coverage/',
+    collectCoverage: true,
+    collectCoverageFrom: [
+      '**/generators/**/*.js',
+      '!**/node_modules/**',
+      '!**/templates/**'
+    ],
+    testMatch: [
+      '**/__tests__/**/*.js'
+    ]
+  }));
+});
 gulp.task('default', gulp.series('static', 'test'));
 
 function nodeSecurityProtocol(cb) {
@@ -20,21 +34,9 @@ function nodeSecurityProtocol(cb) {
 }
 
 function eslintCheck() {
-  return gulp.src(['**/*.js', '!**/templates/**'])
+  return gulp.src(['**/*.js', '!**/templates/**', '!**/__tests__/**/*.js'])
     .pipe(excludeGitignore())
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
-}
-
-function avaTest() {
-  return spawn('./node_modules/.bin/nyc', ['--all', '--reporter=lcov', './node_modules/.bin/ava'], {stdio: 'inherit'});
-}
-
-function nycReport() {
-  return spawn('./node_modules/.bin/nyc', ['report', '--colors'], {stdio: 'inherit'});
-}
-
-function watch() {
-  return spawn('./node_modules/.bin/nyc', ['--all', '--reporter=lcov', './node_modules/.bin/ava', '--watch'], {stdio: 'inherit'});
 }
