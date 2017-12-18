@@ -10,3 +10,4 @@ gulpfile.js
 appveyor.yml
 .idea
 .codeclimate.yml
+tempDir

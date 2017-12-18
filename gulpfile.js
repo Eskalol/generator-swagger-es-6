@@ -7,6 +7,7 @@ const excludeGitignore = require('gulp-exclude-gitignore');
 const nsp = require('gulp-nsp');
 const jest = require('gulp-jest').default;
 const Inception = require('yo-inception');
+const del = require('del');
 
 gulp.task('nsp', nodeSecurityProtocol);
 gulp.task('static', eslintCheck);
@@ -20,7 +21,7 @@ let inception;
  * Used for symlinking into in memory code for testing.
  */
 gulp.task('pre-test', done => {
-  new Inception(path.join(__dirname, 'tempDir')).clean();
+  del.sync(['tempDir/**'], {dot: true});
   inception = new Inception(path.join(__dirname, 'tempDir'));
   inception.copyPackageJson(path.join(__dirname, 'generators/app/templates/_package.json'), {
     name: 'test',
