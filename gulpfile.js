@@ -17,7 +17,7 @@ gulp.task('prepublish', gulp.series('nsp'));
 let inception;
 
 /**
- * installing node_modules for generated code into tempFolder.
+ * Installing node_modules for generated code into tempFolder.
  * Used for symlinking into in memory code for testing.
  */
 gulp.task('pre-test', done => {

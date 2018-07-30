@@ -15,17 +15,20 @@ module.exports = class extends Generator {
       name: 'name',
       message: 'Your project name.',
       default: this.appname
-    }, {
+    },
+    {
       type: 'input',
       name: 'author',
       message: 'Your name.',
       store: true
-    }, {
+    },
+    {
       type: 'input',
       name: 'description',
       message: 'Write a description.',
       default: ''
-    }, {
+    },
+    {
       type: 'input',
       name: 'git',
       message: 'Your git repository.',
@@ -40,7 +43,8 @@ module.exports = class extends Generator {
       type: 'confirm',
       name: 'eslint',
       message: 'Would you like to enable eslint with airbnb config?'
-    }, {
+    },
+    {
       type: 'checkbox',
       name: 'CI',
       message: 'Which CI\'s would you like to use?',
@@ -53,11 +57,13 @@ module.exports = class extends Generator {
         value: 'Appveyor',
         checked: false
       }]
-    }, {
+    },
+    {
       type: 'confirm',
       name: 'docker',
       message: 'Would you like to deploy with docker?'
-    }, {
+    },
+    {
       type: 'confirm',
       name: 'heroku',
       message: 'Initialize Procfile for heroku?'
@@ -84,11 +90,11 @@ module.exports = class extends Generator {
     }
     const copyOptions =
       excludeFiles.length === 0 ? null :
-      {
-        globOptions: {
-          ignore: excludeFiles
-        }
-      };
+        {
+          globOptions: {
+            ignore: excludeFiles
+          }
+        };
     this.fs.copy(
       this.templatePath('gitignore'),
       this.destinationPath('.gitignore')
