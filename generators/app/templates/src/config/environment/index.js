@@ -26,6 +26,7 @@ const all = {
 
   mongo: {
     options: {
+      useNewUrlParser: true
       // mongodb options: see http://mongodb.github.io/node-mongodb-native/2.2/api/MongoClient.html
     }
   }<% if (auth) {%>,
